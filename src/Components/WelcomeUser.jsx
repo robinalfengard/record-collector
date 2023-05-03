@@ -2,15 +2,18 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useContext } from 'react';
 import {AuthContext} from '../Context/AuthProvider';
+import { useAuth } from '../Context/AuthProvider';
 
 
 function WelcomeUser() {
-
+  const authContext = useAuth();
   const {auth, setAuth} = useContext(AuthContext);
+  const isAuthenticated = authContext.isAuthenticated;
 
-  if (!auth.accessToken) {
-    return
-  }
+
+  // Login is working and JWT token is being sent 
+  // TODO : create logout which resets jwt token and check to see that /welcome is unavailable 
+
 
   return (
     <Card className="text-center">
