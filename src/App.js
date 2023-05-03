@@ -18,8 +18,6 @@ function AuthenticatedRoute({ children }) {
   return <Navigate to="/login" />;
 }
 
-
-
 function App() {
   return (
     <>
@@ -39,7 +37,6 @@ function App() {
   </Routes>
   </Router>
   </>
-  
   );
 }
 
