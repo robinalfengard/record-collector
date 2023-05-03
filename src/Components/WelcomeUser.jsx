@@ -1,14 +1,23 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { useContext, useState } from "react";
-import { AuthContext } from "../Context/AuthProvider";
+
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { useContext } from 'react';
+import {AuthContext} from '../Context/AuthProvider';
+import { useAuth } from '../Context/AuthProvider';
 import SearchBar from "./SearchBar/SearchBar";
+
 
 import AlbumCard from "./AlbumCard";
 
 function WelcomeUser() {
-  const { auth, setAuth } = useContext(AuthContext);
+  const authContext = useAuth();
+  const {auth, setAuth} = useContext(AuthContext);
   const [searchResult, setSearchResult] = useState();
+  const isAuthenticated = authContext.isAuthenticated;
+
+
+  // Login is working and JWT token is being sent 
+  // TODO : create logout which resets jwt token and check to see that /welcome is unavailable 
 
   return (
     <Card className="text-center">
